@@ -2,3 +2,7 @@
 ftp.*
 *.mat
 makeArchive
+*.zip
+*.bz2
+\#*
+.\#*

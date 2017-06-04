@@ -29,7 +29,7 @@
 % DOI: 10.1016/j.jneumeth.2010.12.011
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % This code also uses:
@@ -40,6 +40,10 @@
 
 function SynD_extract()
 
+  disp('--> This version of SynD might not work on new versions of matlab.')
+  disp('--> The latest version is: SynD_extract2017.m')
+  disp(' ')
+   
   % To make sure the config file is in the right place...
   SynDscript = mfilename();
   SynDscriptFull = mfilename('fullpath');
