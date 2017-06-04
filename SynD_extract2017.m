@@ -1,23 +1,26 @@
 % SynD - Synapse Detector
 % 
 % NOTE: This version was just rewritten to use object oriented
-% matlab, still being tested. 2015-02-05.
+% matlab, it should be equivalent to old version.
+% Please report any problems.
 % 
 % Johannes Hjorth
-% j.j.j.hjorth@damtp.cam.ac.uk
-% johannes.hjorth@cncr.vu.nl
 % hjorth@kth.se
 %
+% old: j.j.j.hjorth@damtp.cam.ac.uk
+% old: johannes.hjorth@cncr.vu.nl
+%
 % Sabine Schmitz
-% sabine.schmitz@cncr.vu.nl
+% sabine.mosch@uni.lu
+%
+% old: sabine.schmitz@cncr.vu.nl
 %
 % The latest version of the code is available from:
 % http://www.johanneshjorth.se/SynD
 % 
 % You can also find the code at:
 %
-% http://software.incf.org/software/synd
-% http://www.cncr.nl/resources
+% https://github.com/Hjorthmedh/SynD
 %
 % Please cite our article:
 %
