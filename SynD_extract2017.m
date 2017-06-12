@@ -332,7 +332,7 @@ classdef SynD_extract2017 < handle
                   'synapseCenter', [], ...
                   'synapseArea', [], ...
                   'synapseDist', [], ...
-                  'synapsePixels', {}, ...
+                  'synapsePixels', [], ... % should be curly brackets
                   'neuriteLength', NaN, ...
                   'distMask', [], ...
                   'synapseIntensityMorphMean', [], ... % morph-channel
@@ -349,7 +349,7 @@ classdef SynD_extract2017 < handle
                   'meanSynapseProfileMorph', [], ...
                   'meanSynapseProfileSyn', [], ...
                   'meanSynapseProfileX', [], ...
-                  'fileName', {}, ...
+                  'fileName', [], ...
                   'skeleton', [], ...
                   'shollEdges', [NaN NaN NaN], ...
                   'shollDendHist', [], ...
@@ -396,6 +396,7 @@ classdef SynD_extract2017 < handle
                   'somaIntensityThreshold', NaN, ...
                   'synapseIntensityThreshold', NaN);
     
+        
     % Information used to display the image, only relevant to session
 
     dispInfo = struct('curImg', 1, ...
@@ -650,8 +651,11 @@ classdef SynD_extract2017 < handle
 						 
       format compact
       
-      % Lets init the structs
-      obj.data(1).image = [];
+      % For some reason if I have these as cell arrays to begin with
+      % the struct becomes empty instead of having one element
+      % initialised with default data
+      data.synapsePixels = {}
+      data.fileName = {}    
   
       % To make sure the config file is in the right place...
       obj.SynDscript = mfilename();
@@ -4709,6 +4713,8 @@ classdef SynD_extract2017 < handle
 
   function calcMaxIntensity(obj)
 
+    disp('Calculating max intensity')
+		      
     img = obj.getRemappedImage();
 
     % Recalculate the new R,G,B max intensities, used for scaling
@@ -5415,7 +5421,12 @@ classdef SynD_extract2017 < handle
     set(obj.handles.fig,'CurrentAxes',obj.handles.redHist)    
 
     tmp = img(:,:,1);
-    redEdges = linspace(0,max(1,obj.data.maxRed),nHist);
+    try
+      redEdges = linspace(0,max(1,obj.data.maxRed),nHist);
+    catch e
+        getReport(e)
+        keyboard
+    end
     nRed = histc(tmp(:),redEdges);
     dCenter = diff(redEdges(1:2))/2;
     idx = find(redEdges*obj.dispInfo.scaleRed <= obj.data.maxRed);
