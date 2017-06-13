@@ -2034,7 +2034,7 @@ classdef SynD_extract2017 < handle
         case 'Yes'
           disp('Restarting SynD.')
           close(obj.handles.fig)
-          s = SynD_extract();
+          s = SynD_extract2017();
         case 'No'
           disp('Restart aborted.')
           s = obj;
@@ -2042,7 +2042,7 @@ classdef SynD_extract2017 < handle
           if(rand(1) < 0.5)
             disp('Restarting SynD.')
             close(obj.handles.fig)
-            s = SynD_extract();
+            s = SynD_extract2017();
           else
             disp('Not restarting SynD.')
             s = obj;
