@@ -687,11 +687,12 @@ classdef SynD_extract2017 < handle
       obj.setSynDpath()
       
       obj.configFile = strcat(obj.SyndScriptPath,'SynD_config.mat');
-      
-      obj.setupGUI();
 
       % Load saved config values from file
       obj.loadConfig();
+            
+      obj.setupGUI();
+
       
       
     end
