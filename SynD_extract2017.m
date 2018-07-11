@@ -4977,7 +4977,7 @@ classdef SynD_extract2017 < handle
       % Clean out the old
       obj.clearData();
 
-      fprintf('Analysing %s\n', obj.selectedFiles{iFiles})
+      fprintf('Analysing %s\n', selectedFiles{iFiles})
 
       % Load file
       switch(fileType)
